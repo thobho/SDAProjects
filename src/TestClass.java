@@ -19,23 +19,25 @@ public class TestClass {
 
         Arrays.sort(statues);
         int counter = 0;
-        int diff = 0;
-        for (int i = 0; i < statues.length; i++) {
-            if (i == statues.length-1) {
-                return counter;
-            }
-            if (statues[i] != statues[i + 1] && statues[i + 1] - statues[i] > 1) {
+        int diff;
+        for (int i = 0; i < statues.length - 1; i++) {
+            //nie trzeba w pętli sprawdzać, czy już skończyliśmy iterować
+            //wystarczy w pętli iterować, o jeden element krócej (i < statuses.length - 1)
 
-                diff = (statues[i + 1] - statues[i])-1;
+            
+            //jeżeli często używasz czegioś warto wyciągnąć to do zmiennej i nadać temu jakąś sensowną nazwę
+            int actualStatus = statues[i];
+            int nextStatus = statues[i + 1];
+            if (actualStatus != nextStatus && nextStatus - actualStatus > 1) {
+
+                diff = (nextStatus - actualStatus) - 1;
                 counter += diff;
             }
 
 
         }
 
-
         return counter;
-// URL   Httpurlconnection  .
     }
 }
 
